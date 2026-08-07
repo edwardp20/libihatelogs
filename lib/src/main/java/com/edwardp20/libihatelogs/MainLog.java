@@ -59,14 +59,6 @@ public class MainLog {
     }
     
     public static void easterEgg() {
-        int i = 0;
-        while(true) {
-            System.out.println("[Log][FatalError]EASTER EGG!!!!!!!");
-            TimeUnit.SECONDS.sleep(1);
-            i++;
-            if(i == 100) {
-                break;
-            }
-        }
+        System.out.println("[Log][FatalError]EASTER EGG!!!!!!!");
     }
 }
