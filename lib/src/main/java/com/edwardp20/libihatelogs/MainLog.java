@@ -16,11 +16,57 @@ package com.edwardp20.libihatelogs;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.util.concurrent.TimeUnit;
+
 public class MainLog {
+
+    private static byte shouldIRecordLog = 1;
+    
     public boolean test() {
         return true;
     }
-    public static void logWithOutError() {
-        //
+    
+    private static void logWithoutErrorAndCheat(String whatWrong) {
+        int internal;
+        internal = 1;
+        if(internal == internal && internal == 1) {
+            //donothing
+        } else {
+            System.out.println("[Log][FatalError]世界爆炸了，BOOM!!!!!");
+        }
+        //这个其实就是普通日志
+        System.out.println(whatWrong);
+    }
+    
+    public static void logWithoutError(String whatWrong) {
+        //这个其实就是普通日志
+        if(shouldIRecordLog == 1){
+            System.out.println(whatWrong);
+        } else {
+            System.out.println("[Log][Warning]Reflecting on oneself is the solution");
+        }
+    }
+    
+    
+    public static void setOnOff(boolean statusUWant) {
+        if(statusUWant) {
+            shouldIRecordLog=(byte)1;
+            logWithoutErrorAndCheat("[Log][Success]Set on success");
+        } else {
+            shouldIRecordLog=(byte)0;
+            logWithoutErrorAndCheat("[Log][Success]Set off success");
+        }
+    }
+    
+    public static void easterEgg() {
+        int i = 0;
+        while(true) {
+            System.out.println("[Log][FatalError]EASTER EGG!!!!!!!");
+            TimeUnit.SECONDS.sleep(1);
+            i++;
+            if(i == 100) {
+                break;
+            }
+        }
     }
 }

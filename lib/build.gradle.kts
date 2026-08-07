@@ -9,7 +9,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
-    id("com.gradleup.shadow") version "8.3.6"
+    id("com.gradleup.shadow") version "9.6.1"
 }
 
 repositories {
@@ -18,11 +18,6 @@ repositories {
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api(libs.commons.math3)
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation(libs.guava)
 }
 
 testing {
@@ -41,14 +36,22 @@ java {
         languageVersion = JavaLanguageVersion.of(26)
     }
 }
-application {
-    // Define the main class for the application.
-    mainClass = "com.myjava.app.App"
+
+tasks.register("assembly") {
+    dependsOn(tasks.shadowJar)
 }
 
-shadowJar {
+
+tasks.shadowJar {
     mergeServiceFiles()
-    archiveBaseName.set("libihatelogs")  // jar 文件的基本名字
-    archiveVersion.set("0.0.0")  // jar 文件的版本号
-    archiveClassifier.set("")  // jar
+    archiveBaseName.set('libihatelogs')  // jar 文件的基本名字
+    archiveVersion.set('0.0-snapshot1')  // jar 文件的版本号
+	archiveClassifier.set('')  // jar
+    from("LICENSE") {
+        into("META-INF/legal/")
+    }
+    from("NOTICE") {
+        into("META-INF/legal/")
+    }
+
 }
