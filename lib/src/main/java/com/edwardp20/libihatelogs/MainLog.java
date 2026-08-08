@@ -16,8 +16,6 @@ package com.edwardp20.libihatelogs;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import java.util.concurrent.TimeUnit;
-
 public class MainLog {
 
     private static byte shouldIRecordLog = 1;
