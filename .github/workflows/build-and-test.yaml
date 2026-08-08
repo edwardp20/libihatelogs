@@ -1,4 +1,4 @@
-name: CI
+name: build-and-test
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
           chmod -R 777 gradlew
           ./gradlew clean compileJava shadowJar test
 
-      - name: Build the library
+      - name: Upload the artifact
         uses: actions/upload-artifact@v7.0.1
         with:
           name: debug
