@@ -4,3 +4,5 @@
 English version,Version française,日本語版 
 
 Are Progressing,En cours,進行中 
+
+by edwardp20
