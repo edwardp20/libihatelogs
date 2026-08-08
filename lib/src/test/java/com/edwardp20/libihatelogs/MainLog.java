@@ -7,8 +7,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MainLog {
-    @Test public boolean test() {
+    @Test public void test() {
         MainLog classUnderTest = new MainLog();
-        assertTrue("someLibraryMethod should return 'true'",classUnderTest.test());
+        assertTrue(classUnderTest.test(), "test() should return true");
     }
 }
