@@ -47,10 +47,10 @@ tasks.shadowJar {
     archiveBaseName.set("libihatelogs")  // jar 文件的基本名字
     archiveVersion.set("0.0-snapshot1")  // jar 文件的版本号
 	archiveClassifier.set("")  // jar
-    from("LICENSE") {
+    from("../LICENSE") {
         into("META-INF/legal/")
     }
-    from("NOTICE") {
+    from("../NOTICE") {
         into("META-INF/legal/")
     }
 
