@@ -16,37 +16,18 @@ package com.edwardp20.libihatelogs;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class MainLog {
+import com.edwardp20.libihatelogs.whenerror.Error;
 
-    private static byte shouldIRecordLog = 1;
-    
+public class MainLog {
     public boolean test() {
         return true;
     }
-    
-    private static void logWithoutErrorAndCheat(String whatWrong) {
-        int internal;
-        internal = 1;
-        if(internal == internal && internal == 1) {
-            //donothing
-        } else {
-            System.out.println("[Log][FatalError]世界爆炸了，BOOM!!!!!");
-        }
-        //这个其实就是普通日志
-        System.out.println(whatWrong);
-    }
-    
     public static void logWithoutError(String whatWrong) {
         //这个其实就是普通日志
-        if(shouldIRecordLog == 1){
-            System.out.println(whatWrong);
-        } else {
-            System.out.println("[Log][Warning]Reflecting on oneself is the solution");
-        }
+        System.out.println("[Log][Info]" + whatWrong);
     }
-    
-    
-    public static void setOnOff(boolean statusUWant) {
+
+    /*public static void setOnOff(boolean statusUWant) {
         if(statusUWant) {
             shouldIRecordLog=(byte)1;
             logWithoutErrorAndCheat("[Log][Success]Set on success");
@@ -54,9 +35,16 @@ public class MainLog {
             shouldIRecordLog=(byte)0;
             logWithoutErrorAndCheat("[Log][Success]Set off success");
         }
-    }
+    }*/
     
     public static void easterEgg() {
         System.out.println("[Log][FatalError]EASTER EGG!!!!!!!");
+    }
+
+    //半成品，不要用！
+    public static autoLog(String whatWrong,String level) {//fatal->致命,error ...
+        if(level.equals("fatal")) {
+            Error.logWithinFatalError(whatWrong);
+        }
     }
 }

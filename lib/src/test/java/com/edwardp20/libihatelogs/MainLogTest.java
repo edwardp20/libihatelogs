@@ -6,7 +6,7 @@ package com.edwardp20.libihatelogs;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class MainLog {
+public class MainLogTest {
     @Test public void test() {
         MainLog classUnderTest = new MainLog();
         assertTrue(classUnderTest.test(), "test() should return true");
