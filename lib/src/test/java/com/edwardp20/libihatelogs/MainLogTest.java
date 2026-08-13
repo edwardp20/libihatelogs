@@ -9,6 +9,6 @@ import static org.junit.Assert.*;
 public class MainLogTest {
     @Test public void test() {
         MainLog classUnderTest = new MainLog();
-        assertTrue(classUnderTest.test(), "test() should return true");
+        assertTrue("test() should return true",classUnderTest.test());
     }
 }
