@@ -42,7 +42,7 @@ public class MainLog {
     }
 
     //半成品，不要用！
-    public static autoLog(String whatWrong,String level) {//fatal->致命,error ...
+    public static void autoLog(String whatWrong,String level) {//fatal->致命,error ...
         if(level.equals("fatal")) {
             Error.logWithinFatalError(whatWrong);
         }
