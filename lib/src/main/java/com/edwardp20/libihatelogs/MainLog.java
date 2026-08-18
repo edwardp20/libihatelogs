@@ -20,13 +20,13 @@ import com.edwardp20.libihatelogs.whenerror.ErrorProcessor;
 
 public class MainLog {
     //开关自己
-    private boolean switchWarning = true;
+    private static boolean switchWarning = true;
     //开关的setter
     public static void setSwitchWarning(boolean switchWarning) {
-        this.switchWarning = switchWarning;
+        MainLog.switchWarning = switchWarning;
     }
     //开关的getter
-    public static void getSwitchWarning() {
+    public static boolean getSwitchWarning() {
         return switchWarning;
     }
     
