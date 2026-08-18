@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd lib/build/libs/
 auto=0
 for jarName in *.jar;do
@@ -8,6 +8,7 @@ for jarName in *.jar;do
         jarsigner -verbose -storetype pkcs12 -keystore ../../../libihatelogs.p12 -signedjar "$jarName" "$jarName" libihatelogs -tsa http://timestamp.sectigo.com
         continue
     fi
+
     case "$want" in
         y)
             jarsigner -verbose -storetype pkcs12 -keystore ../../../libihatelogs.p12 -signedjar "$jarName" "$jarName" libihatelogs -tsa http://timestamp.sectigo.com

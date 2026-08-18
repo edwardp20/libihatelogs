@@ -17,8 +17,9 @@ package com.edwardp20.libihatelogs.whenerror;
  * limitations under the License.
  */
 import com.edwardp20.libihatelogs.MainLog;
+import com.edwardp20.libihatelogs.whenerror.WarningProcessor;
 
-public class Error {
+public class ErrorProcessor {
     public static void logWithinError(String whatWrong) {
         //这是错误
         System.out.println("[Log][Error]" + whatWrong);
@@ -27,10 +28,16 @@ public class Error {
         //严重错误
         System.out.println("[Log][FatalError]" + whatWrong);
     }
-
+    //Deprecate,use WarningProcessor.logWithinWarning("whatWrong")
+    //or use (not recommend)
+    /*
     public static void logWithinWarning(String whatWrong) {
         //警告
         System.out.println("[Log][Warning]" + whatWrong);
+    }*/
+
+    public static void logWithinWarningDeprecate(String whatWrong) {
+        WarningProcessor.logWithinWarning(whatWrong); 
     }
     //有解决方法的错误
     public static void logHaveErrorAndCanSolve(String whatWrong,String fixMethod) {//whatWrong错误信息,fixMethod解决方法

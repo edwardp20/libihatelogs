@@ -1,0 +1,6 @@
+1.日志等级
+    info < note < warning < error < fatalerror
+2.apis
+    2.1.MainLog
+        void setSwitchWarning(boolean switchWarning) -- 设置是否输出Warning
+        boolean getSwitchWarning() -- switchWarning的getter

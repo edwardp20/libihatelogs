@@ -16,10 +16,22 @@ package com.edwardp20.libihatelogs;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.edwardp20.libihatelogs.whenerror.Error;
+import com.edwardp20.libihatelogs.whenerror.ErrorProcessor;
 
 public class MainLog {
+    //开关自己
+    private boolean switchWarning = true;
+    //开关的setter
+    public static void setSwitchWarning(boolean switchWarning) {
+        this.switchWarning = switchWarning;
+    }
+    //开关的getter
+    public static void getSwitchWarning() {
+        return switchWarning;
+    }
+    
     public boolean test() {
+        //详情见MainLogTest
         return true;
     }
     public static void logWithoutError(String whatWrong) {
@@ -36,15 +48,21 @@ public class MainLog {
             logWithoutErrorAndCheat("[Log][Success]Set off success");
         }
     }*/
-    
+
     public static void easterEgg() {
         System.out.println("[Log][FatalError]EASTER EGG!!!!!!!");
     }
 
-    //半成品，不要用！
+    //成品，用！
     public static void autoLog(String whatWrong,String level) {//fatal->致命,error ...
         if(level.equals("fatal")) {
-            Error.logWithinFatalError(whatWrong);
+            ErrorProcessor.logWithinFatalError(whatWrong);
+        } else if(level.equals("error")) {
+            ErrorProcessor.logWithinError(whatWrong);
+        } else if(level.equals("info")) {
+            logWithoutError(whatWrong);
+        } else {
+            System.out.println("[Log][Internal]Internal error : wrong level name");
         }
     }
 }
